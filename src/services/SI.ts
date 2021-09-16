@@ -11,6 +11,7 @@ export const SI_UNITS: Record<string, SIUnit> = {
   milli: siUnit('m', -3),
   centi: siUnit('c', -2),
   deci: siUnit('d', -1),
+  '': siUnit('', 0),
   deka: siUnit('da', 1),
   hecto: siUnit('h', 2),
   kilo: siUnit('k', 3),
