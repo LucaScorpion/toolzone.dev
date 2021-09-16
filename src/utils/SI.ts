@@ -1,5 +1,11 @@
-// Source: https://physics.nist.gov/cuu/Units/prefixes.html
+export function convertSIUnits(value: number, fromUnit: string, toUnit: string): number {
+  const fromSIUnit = SI_UNITS[fromUnit];
+  const toSIUnit = SI_UNITS[toUnit];
+  const factorDiff = fromSIUnit.factor - toSIUnit.factor;
+  return value * Math.pow(10, factorDiff);
+}
 
+// Source: https://physics.nist.gov/cuu/Units/prefixes.html
 export const SI_UNITS: Record<string, SIUnit> = {
   yocto: siUnit('y', -24),
   zepto: siUnit('z', -21),

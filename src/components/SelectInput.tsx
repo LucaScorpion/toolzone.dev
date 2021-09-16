@@ -11,8 +11,8 @@ export interface Option {
   label: string;
 }
 
-export const SelectInput: React.FC<Props> = ({ options, onChange }) => (
-  <select onChange={(e) => onChange(e.currentTarget.value)}>
+export const SelectInput: React.FC<Props> = ({ options, onChange, ...props }) => (
+  <select {...props} onChange={(e) => onChange(e.currentTarget.value)}>
     {options.map((o) => (
       <option key={o.value} value={o.value}>
         {o.label}

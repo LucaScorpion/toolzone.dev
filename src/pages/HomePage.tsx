@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
 import { NumberInput } from '../components/NumberInput';
 import { SelectInput } from '../components/SelectInput';
-import { SI_UNITS } from '../services/SI';
+import { SI_UNITS } from '../utils/SI';
 import { useService } from '../hooks/useService';
 import { DistanceConverter } from '../services/DistanceConverter';
 
