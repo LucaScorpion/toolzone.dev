@@ -1,0 +1,23 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: 18px;
+  border: none;
+  height: $input-height;
+  padding: 0 8px;
+  font-weight: 500;
+
+  @include clickable($blue-dark, $blue-darker);
+
+  > :first-child.icon {
+    margin-right: 6px;
+  }
+
+  > :last-child.icon {
+    margin-left: 6px;
+  }
+}
