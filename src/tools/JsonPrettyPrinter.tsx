@@ -20,7 +20,7 @@ export const JsonPrettyPrinter: Tool = {
     }, [service, value]);
 
     return (
-      <div>
+      <div className="panels">
         <TextAreaInput value={value} onChange={setValue} placeholder={'{"type":"json","pretty":true}'} />
         <TextAreaInput value={result} onChange={setResult} placeholder={'{\n  "type": "json",\n  "pretty": true\n}'} />
       </div>

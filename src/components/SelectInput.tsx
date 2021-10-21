@@ -1,6 +1,7 @@
 import React from 'react';
 
 export interface Props {
+  className?: string;
   options: Option[];
   value: string;
   onChange: (value: string) => void;

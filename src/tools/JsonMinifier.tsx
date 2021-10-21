@@ -20,7 +20,7 @@ export const JsonMinifier: Tool = {
     }, [service, value]);
 
     return (
-      <div>
+      <div className="panels">
         <TextAreaInput value={value} onChange={setValue} placeholder={'{\n  "type": "json",\n  "pretty": true\n}'} />
         <TextAreaInput value={result} onChange={setResult} placeholder={'{"type":"json","pretty":true}'} />
       </div>

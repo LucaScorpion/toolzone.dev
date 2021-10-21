@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export interface Props {
+  className?: string;
   value?: number;
   onChange: (value: number) => void;
   autoFocus?: boolean;

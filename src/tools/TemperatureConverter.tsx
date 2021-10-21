@@ -5,6 +5,7 @@ import { NumberInput } from '../components/NumberInput';
 import { useEffect, useState } from 'react';
 import { Icon } from '../components/Icon';
 import { Option, SelectInput } from '../components/SelectInput';
+import { TextInput } from '../components/TextInput';
 
 const unitOptions: Option[] = Object.values(TemperatureUnit).map((v) => ({
   value: v,
@@ -25,13 +26,28 @@ export const TemperatureConverter: Tool = {
     }, [service, value, fromUnit, toUnit]);
 
     return (
-      <div>
-        <NumberInput value={value} onChange={setValue} />
-        <SelectInput options={unitOptions} value={fromUnit} onChange={(c) => setFromUnit(c as TemperatureUnit)} />
+      <div className="converter">
+        <NumberInput className="input" value={value} onChange={setValue} />
+        <SelectInput
+          className="unit"
+          options={unitOptions}
+          value={fromUnit}
+          onChange={(c) => setFromUnit(c as TemperatureUnit)}
+        />
         <Icon icon="arrow-right" />
-        <SelectInput options={unitOptions} value={toUnit} onChange={(c) => setToUnit(c as TemperatureUnit)} />
+        <SelectInput
+          className="unit"
+          options={unitOptions}
+          value={toUnit}
+          onChange={(c) => setToUnit(c as TemperatureUnit)}
+        />
         <Icon icon="equals" />
-        <span>{isNaN(result) ? '' : result}</span>
+        <TextInput
+          className="output"
+          value={isNaN(result) ? '' : result.toString()}
+          onChange={() => undefined}
+          readOnly
+        />
       </div>
     );
   },

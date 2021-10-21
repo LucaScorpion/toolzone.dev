@@ -30,7 +30,12 @@ export const HomePage: React.FC = () => {
 
   return (
     <Layout className="home-page">
-      {activeTool && <activeTool.Component />}
+      {activeTool && (
+        <div className="tool">
+          <h2 className="name">{activeTool.name}</h2>
+          <activeTool.Component />
+        </div>
+      )}
       <div className="search-wrapper">
         <TextInput
           className="search"
@@ -42,7 +47,7 @@ export const HomePage: React.FC = () => {
       </div>
       <div className="results">
         {results.map((t) => (
-          <div key={t.name} className="tool" onClick={() => setActiveTool(t)}>
+          <div key={t.name} className="result" onClick={() => setActiveTool(t)}>
             {t.name}
           </div>
         ))}

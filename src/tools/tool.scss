@@ -1,0 +1,37 @@
+.tool {
+  max-width: 100%;
+
+  .panels {
+    textarea {
+      width: 400px;
+      max-width: 100%;
+      height: 300px;
+
+      &:first-child {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  .converter {
+    display: flex;
+    align-items: center;
+
+    .input {
+      width: 200px;
+      margin-right: 16px;
+    }
+
+    .unit {
+      width: 200px;
+    }
+
+    .icon {
+      margin: 0 16px;
+    }
+
+    .output {
+      width: 200px;
+    }
+  }
+}

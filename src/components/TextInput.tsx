@@ -6,6 +6,7 @@ export interface Props {
   onChange: (value: string) => void;
   autoFocus?: boolean;
   placeholder?: string;
+  readOnly?: boolean;
 }
 
 export const TextInput: React.FC<Props> = ({ onChange, ...props }) => (
