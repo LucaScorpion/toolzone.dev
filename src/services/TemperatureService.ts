@@ -4,8 +4,8 @@ export enum TemperatureUnit {
   fahrenheit,
 }
 
-export class TemperatureConverter {
-  public static readonly NAME = 'TemperatureConverter';
+export class TemperatureService {
+  public static readonly NAME = 'TemperatureService';
 
   public convert(value: number, fromUnit: TemperatureUnit, toUnit: TemperatureUnit): number {
     const kelvinValue = new unitMap[fromUnit](value).toKelvin();

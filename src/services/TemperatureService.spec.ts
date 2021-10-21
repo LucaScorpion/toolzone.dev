@@ -1,8 +1,8 @@
 import { Injector } from './Injector';
-import { TemperatureConverter, TemperatureUnit } from './TemperatureConverter';
+import { TemperatureService, TemperatureUnit } from './TemperatureService';
 
-describe('TemperatureConverter', () => {
-  const converter = new Injector().resolve(TemperatureConverter);
+describe('TemperatureService', () => {
+  const converter = new Injector().resolve(TemperatureService);
 
   it.each`
     value    | from                          | to                            | expected

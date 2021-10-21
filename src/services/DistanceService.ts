@@ -1,7 +1,7 @@
 import { convertSIUnits } from '../utils/SI';
 
-export class DistanceConverter {
-  public static readonly NAME = 'DistanceConverter';
+export class DistanceService {
+  public static readonly NAME = 'DistanceService';
 
   public convert(value: number, fromUnit: string, toUnit: string): number {
     // TODO: Non-SI units.

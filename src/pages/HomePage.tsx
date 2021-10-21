@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
 import { TextInput } from '../components/TextInput';
-import { DistanceConverter } from '../services/DistanceConverter';
-import { TemperatureConverter } from '../services/TemperatureConverter';
+import { Tool } from '../tools/Tool';
+import { DistanceConverter } from '../tools/DistanceConverter';
+import { TemperatureConverter } from '../tools/TemperatureConverter';
 
-const tools = [DistanceConverter, TemperatureConverter];
+const tools: Tool[] = [DistanceConverter, TemperatureConverter];
 
 export const HomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState(tools);
+  const [tool, setTool] = useState<Tool>();
 
   useEffect(() => {
     const terms = searchTerm
@@ -23,7 +25,7 @@ export const HomePage: React.FC = () => {
 
     setResults(
       tools.filter((tool) => {
-        const nameLower = tool.NAME.toLowerCase();
+        const nameLower = tool.name.toLowerCase();
         return terms.every((term) => nameLower.includes(term));
       })
     );
@@ -31,6 +33,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <Layout className="home-page">
+      {tool && <tool.Component />}
       <div className="search-wrapper">
         <TextInput
           className="search"
@@ -42,8 +45,8 @@ export const HomePage: React.FC = () => {
       </div>
       <div className="results">
         {results.map((t) => (
-          <div key={t.NAME} className="tool">
-            {t.NAME}
+          <div key={t.name} className="tool" onClick={() => setTool(t)}>
+            {t.name}
           </div>
         ))}
       </div>
