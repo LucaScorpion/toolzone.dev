@@ -4,13 +4,15 @@ import { TextInput } from '../components/TextInput';
 import { Tool } from '../tools/Tool';
 import { DistanceConverter } from '../tools/DistanceConverter';
 import { TemperatureConverter } from '../tools/TemperatureConverter';
+import { JsonPrettyPrinter } from '../tools/JsonPrettyPrinter';
+import { JsonMinifier } from '../tools/JsonMinifier';
 
-const tools: Tool[] = [DistanceConverter, TemperatureConverter];
+const tools: Tool[] = [DistanceConverter, JsonMinifier, JsonPrettyPrinter, TemperatureConverter];
 
 export const HomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState(tools);
-  const [tool, setTool] = useState<Tool>();
+  const [activeTool, setActiveTool] = useState<Tool>();
 
   useEffect(() => {
     const terms = searchTerm
@@ -33,7 +35,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <Layout className="home-page">
-      {tool && <tool.Component />}
+      {activeTool && <activeTool.Component />}
       <div className="search-wrapper">
         <TextInput
           className="search"
@@ -45,7 +47,7 @@ export const HomePage: React.FC = () => {
       </div>
       <div className="results">
         {results.map((t) => (
-          <div key={t.name} className="tool" onClick={() => setTool(t)}>
+          <div key={t.name} className="tool" onClick={() => setActiveTool(t)}>
             {t.name}
           </div>
         ))}

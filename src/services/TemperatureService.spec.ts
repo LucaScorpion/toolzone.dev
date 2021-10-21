@@ -2,7 +2,7 @@ import { Injector } from './Injector';
 import { TemperatureService, TemperatureUnit } from './TemperatureService';
 
 describe('TemperatureService', () => {
-  const converter = new Injector().resolve(TemperatureService);
+  const service = new Injector().resolve(TemperatureService);
 
   it.each`
     value    | from                          | to                            | expected
@@ -16,6 +16,6 @@ describe('TemperatureService', () => {
     ${12.34} | ${TemperatureUnit.celsius}    | ${TemperatureUnit.fahrenheit} | ${54.21}
     ${12.34} | ${TemperatureUnit.fahrenheit} | ${TemperatureUnit.celsius}    | ${-10.92}
   `('converts the temperature', ({ value, from, to, expected }) => {
-    expect(converter.convert(value, from, to)).toBeCloseTo(expected);
+    expect(service.convert(value, from, to)).toBeCloseTo(expected);
   });
 });
