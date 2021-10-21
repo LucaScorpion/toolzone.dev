@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
 import { TextInput } from '../components/TextInput';
 import { Tool } from '../tools/Tool';
-import { DistanceConverter } from '../tools/DistanceConverter';
-import { TemperatureConverter } from '../tools/TemperatureConverter';
-import { JsonPrettyPrinter } from '../tools/JsonPrettyPrinter';
-import { JsonMinifier } from '../tools/JsonMinifier';
-
-const tools: Tool[] = [DistanceConverter, JsonMinifier, JsonPrettyPrinter, TemperatureConverter];
+import { tools } from '../tools/tools';
 
 export const HomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
