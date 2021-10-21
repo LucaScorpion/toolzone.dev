@@ -11,8 +11,10 @@ $input-height: 32px;
 @import 'colors';
 @import 'mixins';
 
-// Component styles.
+// Component and page styles.
 #root {
   @import '../components/Button';
   @import '../components/Layout';
+
+  @import '../pages/HomePage';
 }

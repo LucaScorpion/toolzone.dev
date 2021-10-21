@@ -1,0 +1,41 @@
+.home-page {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > div {
+      flex: auto;
+    }
+
+    .search-wrapper {
+      width: 600px;
+      max-width: 100%;
+      padding: 0 16px;
+
+      .search {
+        margin-top: 64px;
+        font-size: 1.5rem;
+        height: 1.5 * $input-height;
+        padding: 0 8px;
+        width: 100%;
+      }
+    }
+
+    .results {
+      display: flex;
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .tool {
+        background-color: gray;
+        margin: 8px;
+        padding: 8px;
+        border-radius: $border-radius;
+
+        @include clickable(gray, dimgray);
+      }
+    }
+  }
+}

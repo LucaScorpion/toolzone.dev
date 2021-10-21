@@ -1,46 +1,51 @@
 import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
-import { NumberInput } from '../components/NumberInput';
-import { SelectInput } from '../components/SelectInput';
-import { SI_UNITS } from '../utils/SI';
-import { useService } from '../hooks/useService';
+import { TextInput } from '../components/TextInput';
 import { DistanceConverter } from '../services/DistanceConverter';
+import { TemperatureConverter } from '../services/TemperatureConverter';
+
+const tools = [DistanceConverter, TemperatureConverter];
 
 export const HomePage: React.FC = () => {
-  const [fromValue, setFromValue] = useState<number>();
-  const [fromUnit, setFromUnit] = useState('');
-  const [toUnit, setToUnit] = useState('');
-  const [result, setResult] = useState(0);
-
-  const converter = useService(DistanceConverter);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [results, setResults] = useState(tools);
 
   useEffect(() => {
-    setResult(converter.convertDistance(fromValue ?? 0, fromUnit, toUnit));
-  }, [converter, fromValue, fromUnit, toUnit]);
+    const terms = searchTerm
+      .toLowerCase()
+      .split(' ')
+      .filter((t) => !!t);
+
+    if (!terms.length) {
+      setResults(tools);
+      return;
+    }
+
+    setResults(
+      tools.filter((tool) => {
+        const nameLower = tool.NAME.toLowerCase();
+        return terms.every((term) => nameLower.includes(term));
+      })
+    );
+  }, [searchTerm]);
 
   return (
-    <Layout>
-      This is where the content goes
-      <div>
-        <NumberInput value={fromValue} onChange={setFromValue} />
-        <SelectInput
-          options={Object.entries(SI_UNITS).map(([k]) => ({
-            value: k,
-            label: `${k}meter`,
-          }))}
-          value={fromUnit}
-          onChange={setFromUnit}
+    <Layout className="home-page">
+      <div className="search-wrapper">
+        <TextInput
+          className="search"
+          value={searchTerm}
+          onChange={setSearchTerm}
+          autoFocus
+          placeholder="Search for a tool..."
         />
-        to
-        <SelectInput
-          options={Object.entries(SI_UNITS).map(([k]) => ({
-            value: k,
-            label: `${k}meter`,
-          }))}
-          value={toUnit}
-          onChange={setToUnit}
-        />
-        = {result}
+      </div>
+      <div className="results">
+        {results.map((t) => (
+          <div key={t.NAME} className="tool">
+            {t.NAME}
+          </div>
+        ))}
       </div>
     </Layout>
   );
