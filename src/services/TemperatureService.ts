@@ -1,7 +1,7 @@
 export enum TemperatureUnit {
-  kelvin,
-  celsius,
-  fahrenheit,
+  kelvin = 'Kelvin',
+  celsius = 'Celsius',
+  fahrenheit = 'Fahrenheit',
 }
 
 export class TemperatureService {
