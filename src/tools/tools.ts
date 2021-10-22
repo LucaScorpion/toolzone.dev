@@ -3,6 +3,7 @@ import { JsonMinifier, JsonPrettyPrinter } from './JsonTools';
 import { TemperatureConverter } from './TemperatureConverter';
 import { MorseDecoder, MorseEncoder } from './MorseTools';
 import { CaesarCipher } from './CaesarCipher';
+import { PercentDecoder, PercentEncoder } from './PercentTools';
 
 export const tools = [
   CaesarCipher,
@@ -11,5 +12,7 @@ export const tools = [
   JsonPrettyPrinter,
   MorseDecoder,
   MorseEncoder,
+  PercentDecoder,
+  PercentEncoder,
   TemperatureConverter,
 ];
