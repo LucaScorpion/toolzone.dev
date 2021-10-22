@@ -10,16 +10,17 @@
       height: 300px;
 
       .name {
-        margin: 8px 0 8px 8px;
+        margin-bottom: 8px;
       }
     }
 
     .search-wrapper {
       width: 100%;
-      padding: 0 16px;
+      padding: 0 8px;
 
       .search {
         margin-top: 64px;
+        margin-bottom: 8px;
         font-size: 1.5rem;
         height: 1.5 * $input-height;
         padding: 0 8px;
