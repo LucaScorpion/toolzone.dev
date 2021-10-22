@@ -6,6 +6,10 @@
     display: flex;
     align-items: center;
 
+    @include small-screen {
+      margin-bottom: 40px;
+    }
+
     .title {
       font-size: 36px;
       margin-left: 16px;

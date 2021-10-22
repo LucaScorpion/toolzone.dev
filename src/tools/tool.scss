@@ -5,12 +5,21 @@
     display: flex;
     height: 100%;
 
+    @include small-screen {
+      flex-direction: column;
+    }
+
     > * {
       flex: 1 1 auto;
       height: 100%;
 
       &:not(:last-child) {
         margin-right: 16px;
+
+        @include small-screen {
+          margin-right: initial;
+          margin-bottom: 16px;
+        }
       }
     }
   }
@@ -19,21 +28,34 @@
     display: flex;
     align-items: center;
 
-    .input {
-      width: 200px;
+    > *:not(:last-child) {
       margin-right: 16px;
     }
 
-    .unit {
+    .input {
       width: 200px;
     }
 
-    .icon {
-      margin: 0 16px;
+    .small-screen {
+      display: none;
     }
 
-    .output {
-      width: 200px;
+    @include small-screen {
+      flex-direction: column;
+
+      > *,
+      > .input,
+      > .icon {
+        margin: 8px 0;
+      }
+
+      .small-screen {
+        display: initial;
+      }
+
+      .big-screen {
+        display: none;
+      }
     }
   }
 }
