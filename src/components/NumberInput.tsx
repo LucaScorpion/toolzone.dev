@@ -5,6 +5,8 @@ export interface Props {
   value?: number;
   onChange: (value: number) => void;
   autoFocus?: boolean;
+  min?: number;
+  max?: number;
 }
 
 export const NumberInput: React.FC<Props> = ({ onChange, ...props }) => {
@@ -13,6 +15,7 @@ export const NumberInput: React.FC<Props> = ({ onChange, ...props }) => {
   return (
     <input
       {...props}
+      type="number"
       value={stringValue}
       onChange={(e) => {
         const stringVal = e.currentTarget.value;

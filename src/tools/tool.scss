@@ -2,9 +2,15 @@
   width: 100%;
   padding: 8px;
 
+  .panels-options {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
   .panels {
     display: flex;
-    height: 100%;
+    flex: 1 1 auto;
 
     @include small-screen {
       flex-direction: column;
@@ -23,6 +29,13 @@
         }
       }
     }
+  }
+
+  .options {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: lightslategray;
+    border-radius: $border-radius;
   }
 
   .converter {

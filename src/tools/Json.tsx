@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { TextAreaInput } from '../components/TextAreaInput';
 import { useService } from '../hooks/useService';
 import { JsonService } from '../services/JsonService';
+import { NumberInput } from '../components/NumberInput';
 
 export const JsonMinify: Tool = {
   name: 'JSON minify',
@@ -33,20 +34,30 @@ export const JsonPrettyPrint: Tool = {
   Component: () => {
     const service = useService(JsonService);
     const [value, setValue] = useState('');
+    const [spaces, setSpaces] = useState(2);
     const [result, setResult] = useState('');
 
     useEffect(() => {
       try {
-        setResult(service.prettyPrint(value, 2));
+        setResult(service.prettyPrint(value, spaces));
       } catch (e) {
         setResult(e.message);
       }
-    }, [service, value]);
+    }, [service, value, spaces]);
 
     return (
-      <div className="panels">
-        <TextAreaInput value={value} onChange={setValue} placeholder={'{"type":"json","pretty":true}'} />
-        <TextAreaInput value={result} onChange={setResult} placeholder={'{\n  "type": "json",\n  "pretty": true\n}'} />
+      <div className="panels-options">
+        <div className="panels">
+          <TextAreaInput value={value} onChange={setValue} placeholder={'{"type":"json","pretty":true}'} />
+          <TextAreaInput
+            value={result}
+            onChange={setResult}
+            placeholder={'{\n  "type": "json",\n  "pretty": true\n}'}
+          />
+        </div>
+        <div className="options">
+          Spaces: <NumberInput value={spaces} onChange={setSpaces} min={1} max={10} />
+        </div>
       </div>
     );
   },
