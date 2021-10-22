@@ -1,18 +1,18 @@
-import { DistanceConverter } from './DistanceConverter';
-import { JsonMinifier, JsonPrettyPrinter } from './JsonTools';
-import { TemperatureConverter } from './TemperatureConverter';
-import { MorseDecoder, MorseEncoder } from './MorseTools';
+import { Distance } from './Distance';
+import { JsonMinify, JsonPrettyPrint } from './Json';
+import { TemperatureConvert } from './Temperature';
+import { MorseDecode, MorseEncode } from './Morse';
 import { CaesarCipher } from './CaesarCipher';
-import { PercentDecoder, PercentEncoder } from './PercentTools';
+import { PercentDecode, PercentEncode } from './Percent';
 
 export const tools = [
   CaesarCipher,
-  DistanceConverter,
-  JsonMinifier,
-  JsonPrettyPrinter,
-  MorseDecoder,
-  MorseEncoder,
-  PercentDecoder,
-  PercentEncoder,
-  TemperatureConverter,
+  Distance,
+  JsonMinify,
+  JsonPrettyPrint,
+  MorseDecode,
+  MorseEncode,
+  PercentDecode,
+  PercentEncode,
+  TemperatureConvert,
 ];

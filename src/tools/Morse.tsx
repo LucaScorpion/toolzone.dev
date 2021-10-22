@@ -4,8 +4,8 @@ import { TextAreaInput } from '../components/TextAreaInput';
 import { useService } from '../hooks/useService';
 import { MorseService } from '../services/MorseService';
 
-export const MorseEncoder: Tool = {
-  name: 'Morse encoder',
+export const MorseEncode: Tool = {
+  name: 'Morse encode',
   Component: () => {
     const service = useService(MorseService);
     const [value, setValue] = useState('');
@@ -28,8 +28,8 @@ export const MorseEncoder: Tool = {
   },
 };
 
-export const MorseDecoder: Tool = {
-  name: 'Morse decoder',
+export const MorseDecode: Tool = {
+  name: 'Morse decode',
   Component: () => {
     const service = useService(MorseService);
     const [value, setValue] = useState('');

@@ -4,8 +4,8 @@ import { TextAreaInput } from '../components/TextAreaInput';
 import { useService } from '../hooks/useService';
 import { JsonService } from '../services/JsonService';
 
-export const JsonMinifier: Tool = {
-  name: 'JSON minifier',
+export const JsonMinify: Tool = {
+  name: 'JSON minify',
   Component: () => {
     const service = useService(JsonService);
     const [value, setValue] = useState('');
@@ -28,8 +28,8 @@ export const JsonMinifier: Tool = {
   },
 };
 
-export const JsonPrettyPrinter: Tool = {
-  name: 'JSON pretty printer',
+export const JsonPrettyPrint: Tool = {
+  name: 'JSON pretty print',
   Component: () => {
     const service = useService(JsonService);
     const [value, setValue] = useState('');

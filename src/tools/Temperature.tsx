@@ -12,8 +12,8 @@ const unitOptions: Option[] = Object.values(TemperatureUnit).map((v) => ({
   label: v,
 }));
 
-export const TemperatureConverter: Tool = {
-  name: 'Temperature converter',
+export const TemperatureConvert: Tool = {
+  name: 'Temperature conversion',
   Component: () => {
     const service = useService(TemperatureService);
     const [value, setValue] = useState(0);

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Tool } from './Tool';
 
-export const DistanceConverter: Tool = {
-  name: 'Distance converter',
+export const Distance: Tool = {
+  name: 'Distance conversion',
   Component: () => {
     return <div>Distance converter!</div>;
   },

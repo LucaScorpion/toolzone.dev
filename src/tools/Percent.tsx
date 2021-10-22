@@ -4,8 +4,8 @@ import { TextAreaInput } from '../components/TextAreaInput';
 import { useService } from '../hooks/useService';
 import { PercentService } from '../services/PercentService';
 
-export const PercentEncoder: Tool = {
-  name: 'Percent encoder',
+export const PercentEncode: Tool = {
+  name: 'Percent encode',
   Component: () => {
     const service = useService(PercentService);
     const [value, setValue] = useState('');
@@ -28,8 +28,8 @@ export const PercentEncoder: Tool = {
   },
 };
 
-export const PercentDecoder: Tool = {
-  name: 'Percent decoder',
+export const PercentDecode: Tool = {
+  name: 'Percent decode',
   Component: () => {
     const service = useService(PercentService);
     const [value, setValue] = useState('');
