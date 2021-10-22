@@ -56,7 +56,9 @@ export const JsonPrettyPrint: Tool = {
           />
         </div>
         <div className="options">
-          Spaces: <NumberInput value={spaces} onChange={setSpaces} min={1} max={10} />
+          <div>
+            Spaces: <NumberInput value={spaces} onChange={setSpaces} min={1} max={10} />
+          </div>
         </div>
       </div>
     );

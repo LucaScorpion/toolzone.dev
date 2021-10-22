@@ -10,6 +10,10 @@ body {
   background-color: #d3d3d3;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none;
   color: initial;
@@ -20,4 +24,8 @@ input {
   height: $input-height;
   border-radius: $border-radius;
   padding: 0 4px;
+}
+
+textarea {
+  padding: 4px;
 }

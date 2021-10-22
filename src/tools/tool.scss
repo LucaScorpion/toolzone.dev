@@ -33,9 +33,19 @@
 
   .options {
     margin-top: 8px;
-    padding: 8px;
+    padding: 8px 8px 0 8px;
     background-color: lightslategray;
     border-radius: $border-radius;
+
+    > div {
+      margin-right: 16px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100px;
+    }
   }
 
   .converter {
