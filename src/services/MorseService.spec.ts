@@ -8,11 +8,19 @@ const pangramMorse =
 describe('MorseService', () => {
   const service = new Injector().resolve(MorseService);
 
-  it('encodes morse', () => {
-    expect(service.encode(pangramText, '-', '.', '/')).toBe(pangramMorse);
+  it.each`
+    value          | dash   | dot    | space  | expected
+    ${pangramText} | ${'-'} | ${'.'} | ${'/'} | ${pangramMorse}
+    ${'ab c'}      | ${'_'} | ${','} | ${'|'} | ${',_ _,,, | _,_,'}
+  `('encodes morse', ({ value, dash, dot, space, expected }) => {
+    expect(service.encode(value, dash, dot, space)).toBe(expected);
   });
 
-  it('decodes morse', () => {
-    expect(service.decode(pangramMorse, '-', '.', '/')).toBe(pangramText.toLowerCase());
+  it.each`
+    value                   | dash   | dot    | space  | expected
+    ${pangramMorse}         | ${'-'} | ${'.'} | ${'/'} | ${pangramText.toLowerCase()}
+    ${',_ _,,,  |  _,_,  '} | ${'_'} | ${','} | ${'|'} | ${'ab c'}
+  `('decodes morse', ({ value, dash, dot, space, expected }) => {
+    expect(service.decode(value, dash, dot, space)).toBe(expected);
   });
 });

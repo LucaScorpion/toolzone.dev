@@ -11,6 +11,8 @@ export class MorseService {
           .split('')
           .map((symbol) => symbolToMorse[symbol] ?? '')
           .join(' ')
+          .replaceAll('-', dash)
+          .replaceAll('.', dot)
       )
       .join(` ${space} `);
   }
@@ -21,6 +23,9 @@ export class MorseService {
       .filter((w) => !!w)
       .map((word) =>
         word
+          .trim()
+          .replaceAll(dash, '-')
+          .replaceAll(dot, '.')
           .split(' ')
           .map((symbol) => morseToSymbol[symbol] ?? '')
           .join('')
