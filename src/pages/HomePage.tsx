@@ -30,12 +30,14 @@ export const HomePage: React.FC = () => {
 
   return (
     <Layout className="home-page">
-      {activeTool && (
-        <div className="tool">
-          <h2 className="name">{activeTool.name}</h2>
-          <activeTool.Component />
-        </div>
-      )}
+      <div className="tool">
+        {activeTool && (
+          <>
+            <h2 className="name">{activeTool.name}</h2>
+            <activeTool.Component />
+          </>
+        )}
+      </div>
       <div className="search-wrapper">
         <TextInput
           className="search"
