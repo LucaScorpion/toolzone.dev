@@ -1,9 +1,7 @@
 import { DistanceConverter } from './DistanceConverter';
-import { JsonMinifier } from './JsonMinifier';
-import { JsonPrettyPrinter } from './JsonPrettyPrinter';
+import { JsonMinifier, JsonPrettyPrinter } from './JsonTools';
 import { TemperatureConverter } from './TemperatureConverter';
-import { MorseDecoder } from './MorseDecoder';
-import { MorseEncoder } from './MorseEncoder';
+import { MorseDecoder, MorseEncoder } from './MorseTools';
 
 export const tools = [
   DistanceConverter,
