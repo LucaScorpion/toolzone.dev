@@ -1,7 +1,6 @@
 .layout {
   .top-bar {
     background-color: $top-bar-color;
-    color: $top-bar-text-color;
     height: $top-bar-height;
     display: flex;
     align-items: center;
@@ -13,6 +12,7 @@
     .title {
       font-size: 36px;
       margin-left: 16px;
+      color: $top-bar-text-color;
     }
   }
 }

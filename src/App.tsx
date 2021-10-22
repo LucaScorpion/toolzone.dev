@@ -1,11 +1,11 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
+import { ToolsPage } from './pages/ToolsPage';
 
 export const App: React.FC = () => (
   <Switch>
-    <Route exact path="/" component={HomePage} />
-    <Redirect to="/" />
+    <Route exact path="/tools/:tool?" component={ToolsPage} />
+    <Redirect to="/tools" />
   </Switch>
 );
 
