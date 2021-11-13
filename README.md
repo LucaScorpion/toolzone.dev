@@ -4,7 +4,8 @@ A collection of browser-based utilities. Everything runs client-side in the brow
 
 ## Available Tools
 
-- Caesar cipher (ROT13)
+- Base64 decode & encode
+- Caesar cipher (ROT13, shift cipher)
 - JSON minify & pretty print (beautify)
 - Morse decode & encode
 - Percent (URL) decode & encode
