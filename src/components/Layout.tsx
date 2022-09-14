@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { classNames } from '../utils/classNames';
 import { GitHubCorner } from './GitHubCorner';
 
 export interface Props {
+  children: ReactNode;
   className?: string;
 }
 
