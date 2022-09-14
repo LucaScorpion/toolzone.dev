@@ -10,9 +10,9 @@ export interface Props {
 
 export const Layout: React.FC<Props> = ({ children, className }) => (
   <div className={classNames('layout', className)}>
-    <div className='top-bar'>
-      <Link to='/'>
-        <h1 className='title'>toolzone.dev</h1>
+    <div className="top-bar">
+      <Link to="/">
+        <h1 className="title">toolzone.dev</h1>
       </Link>
     </div>
     <GitHubCorner />
