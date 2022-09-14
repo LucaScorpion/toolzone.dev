@@ -5,6 +5,7 @@ import { useService } from '../hooks/useService';
 import { PercentService } from '../services/PercentService';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
 
+// TODO: Add "url" as additional searchable keyword.
 export const PercentEncode: Tool = {
   name: 'Percent encode',
   Component: () => {

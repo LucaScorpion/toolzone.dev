@@ -52,6 +52,12 @@ export const ToolsPage: React.FC = () => {
           onChange={setSearchTerm}
           autoFocus
           placeholder="Search for a tool..."
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && results.length) {
+              // TODO: Make this set the URL.
+              setActiveTool(results[0]);
+            }
+          }}
         />
       </div>
       <div className="results">
