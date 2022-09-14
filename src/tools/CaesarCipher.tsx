@@ -1,9 +1,9 @@
 import { Tool } from './Tool';
 import { useService } from '../hooks/useService';
 import { useState } from 'react';
-import { TextAreaInput } from '../components/TextAreaInput';
+import { TextAreaInput } from '../components/input/TextAreaInput';
 import { CaesarCipherService } from '../services/CaesarCipherService';
-import { NumberInput } from '../components/NumberInput';
+import { NumberInput } from '../components/input/NumberInput';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
 
 export const CaesarCipher: Tool = {

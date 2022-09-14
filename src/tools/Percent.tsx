@@ -1,6 +1,6 @@
 import { Tool } from './Tool';
 import { useState } from 'react';
-import { TextAreaInput } from '../components/TextAreaInput';
+import { TextAreaInput } from '../components/input/TextAreaInput';
 import { useService } from '../hooks/useService';
 import { PercentService } from '../services/PercentService';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';

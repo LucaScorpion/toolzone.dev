@@ -1,9 +1,9 @@
 import { Tool } from './Tool';
 import { useState } from 'react';
-import { TextAreaInput } from '../components/TextAreaInput';
+import { TextAreaInput } from '../components/input/TextAreaInput';
 import { useService } from '../hooks/useService';
 import { MorseService } from '../services/MorseService';
-import { TextInput } from '../components/TextInput';
+import { TextInput } from '../components/input/TextInput';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
 
 export const MorseEncode: Tool = {

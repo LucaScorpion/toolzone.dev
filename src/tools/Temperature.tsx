@@ -1,11 +1,11 @@
 import { useService } from '../hooks/useService';
 import { TemperatureService, TemperatureUnit } from '../services/TemperatureService';
 import { Tool } from './Tool';
-import { NumberInput } from '../components/NumberInput';
+import { NumberInput } from '../components/input/NumberInput';
 import { useEffect, useState } from 'react';
 import { Icon } from '../components/Icon';
-import { Option, SelectInput } from '../components/SelectInput';
-import { TextInput } from '../components/TextInput';
+import { Option, SelectInput } from '../components/input/SelectInput';
+import { TextInput } from '../components/input/TextInput';
 
 const unitOptions: Option[] = Object.values(TemperatureUnit).map((v) => ({
   value: v,

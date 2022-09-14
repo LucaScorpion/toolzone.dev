@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
-import { TextInput } from '../components/TextInput';
+import { TextInput } from '../components/input/TextInput';
 import { Tool } from '../tools/Tool';
 import { tools } from '../tools/tools';
 import { useParam } from '../hooks/useParam';

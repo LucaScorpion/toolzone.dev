@@ -1,6 +1,6 @@
 import { Tool } from './Tool';
 import { useState } from 'react';
-import { TextAreaInput } from '../components/TextAreaInput';
+import { TextAreaInput } from '../components/input/TextAreaInput';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
 
 export const Base64Decode: Tool = {

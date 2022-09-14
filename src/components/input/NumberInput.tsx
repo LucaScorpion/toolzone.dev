@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
+import { HtmlInputProps } from './TextInput';
 
-export interface Props {
-  className?: string;
+export interface Props extends Omit<HtmlInputProps, 'onChange' | 'type'> {
   value?: number;
   onChange: (value: number) => void;
-  autoFocus?: boolean;
-  min?: number;
-  max?: number;
 }
 
 export const NumberInput: React.FC<Props> = ({ onChange, ...props }) => {
