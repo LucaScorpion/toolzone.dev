@@ -1,6 +1,6 @@
-# Utilities
+# toolzone.dev
 
-[![Deploy to GitHub Pages](https://github.com/LucaScorpion/utilitools/actions/workflows/deploy.yml/badge.svg)](https://github.com/LucaScorpion/utilitools/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/LucaScorpion/toolzone.dev/actions/workflows/deploy.yml/badge.svg)](https://github.com/LucaScorpion/toolzone.dev/actions/workflows/deploy.yml)
 
 A collection of browser-based utilities.
 Everything runs client-side in the browser, so no data is ever sent to a server.
