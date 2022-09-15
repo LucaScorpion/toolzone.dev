@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { TextInput } from '../components/input/TextInput';
 import { Tool } from '../tools/Tool';
@@ -11,6 +11,7 @@ export const ToolsPage: React.FC = () => {
   const [results, setResults] = useState(tools);
   const toolName = useParam('tool');
   const [activeTool, setActiveTool] = useState<Tool>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setActiveTool(tools.find((t) => t.name === toolName));
@@ -54,8 +55,7 @@ export const ToolsPage: React.FC = () => {
           placeholder="Search for a tool..."
           onKeyDown={(e) => {
             if (e.key === 'Enter' && results.length) {
-              // TODO: Make this set the URL.
-              setActiveTool(results[0]);
+              navigate(`/tools/${results[0].name}`);
             }
           }}
         />
