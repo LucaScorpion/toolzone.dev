@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import { TextInput } from '../components/input/TextInput';
 import { Tool } from '../tools/Tool';
 import { tools } from '../tools/tools';
-import { useParam } from '../hooks/useParam';
+import { useToolNav } from '../hooks/useToolNav';
 
 export const ToolsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState(tools);
-  const toolName = useParam('tool');
   const [activeTool, setActiveTool] = useState<Tool>();
-  const navigate = useNavigate();
+  const [toolName, toolNav] = useToolNav();
 
   useEffect(() => {
     setActiveTool(tools.find((t) => t.name === toolName));
@@ -55,14 +54,14 @@ export const ToolsPage: React.FC = () => {
           placeholder="Search for a tool..."
           onKeyDown={(e) => {
             if (e.key === 'Enter' && results.length) {
-              navigate(`/tools/${results[0].name}`);
+              toolNav(results[0].name);
             }
           }}
         />
       </div>
       <div className="results">
         {results.map((t) => (
-          <Link key={t.name} to={`/tools/${t.name}`}>
+          <Link key={t.name} to={`/tools/${encodeURIComponent(t.name)}`}>
             <div className="result" onClick={() => setActiveTool(t)}>
               {t.name}
             </div>
