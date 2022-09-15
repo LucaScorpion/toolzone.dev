@@ -3,11 +3,10 @@ import { TemperatureConvert } from './Temperature';
 import { MorseDecode, MorseEncode } from './Morse';
 import { CaesarCipher } from './CaesarCipher';
 import { PercentDecode, PercentEncode } from './Percent';
-import { Base64Decode, Base64Encode } from './Base64';
+import { Base64 } from './Base64';
 
 export const tools = [
-  Base64Decode,
-  Base64Encode,
+  ...Base64,
   CaesarCipher,
   JsonMinify,
   JsonPrettyPrint,
