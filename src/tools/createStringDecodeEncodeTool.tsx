@@ -1,5 +1,6 @@
 import { Tool } from './Tool';
 import { createStringTool } from './createStringTool';
+import { ToolOption } from './toolOptions';
 
 type encodeDecodeFn = (input: string) => string;
 
@@ -9,10 +10,10 @@ export function createStringDecodeEncodeTool(
   encodeFn: encodeDecodeFn,
   encodedExample: string,
   decodedExample: string,
-  fnOptions?: unknown
+  toolOptions?: ToolOption[]
 ): Tool[] {
   return [
-    createStringTool(`${name} decode`, decodeFn, encodedExample, decodedExample, fnOptions),
-    createStringTool(`${name} encode`, encodeFn, decodedExample, encodedExample, fnOptions),
+    createStringTool(`${name} decode`, decodeFn, encodedExample, decodedExample, toolOptions),
+    createStringTool(`${name} encode`, encodeFn, decodedExample, encodedExample, toolOptions),
   ];
 }
