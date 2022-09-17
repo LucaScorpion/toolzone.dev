@@ -1,18 +1,16 @@
 import { Tool } from './Tool';
-import { useService } from '../hooks/useService';
 import { useState } from 'react';
 import { TextAreaInput } from '../components/input/TextAreaInput';
-import { CaesarCipherService } from '../services/CaesarCipherService';
+import { caesarCipherEncode } from '../services/caesarCipher';
 import { NumberInput } from '../components/input/NumberInput';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
 
 export const CaesarCipher: Tool = {
   name: 'Caesar cipher',
   Component: () => {
-    const service = useService(CaesarCipherService);
     const [value, setValue] = useState('');
     const [shift, setShift] = useState(13);
-    const result = useEffectWithCatch(() => service.encode(value, shift), [service, value, shift]);
+    const result = useEffectWithCatch(() => caesarCipherEncode(value, shift), [value, shift]);
 
     return (
       <div className="panels-options">

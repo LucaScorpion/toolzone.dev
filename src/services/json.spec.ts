@@ -1,16 +1,13 @@
-import { Injector } from './Injector';
-import { JsonService } from './JsonService';
+import { jsonMinify, jsonPrettyPrint } from './json';
 
-describe('JsonService', () => {
-  const service = new Injector().resolve(JsonService);
-
+describe('json', () => {
   it.each`
     value                 | spaces | expected
     ${''}                 | ${2}   | ${''}
     ${'{"some":"value"}'} | ${2}   | ${'{\n  "some": "value"\n}'}
     ${'{"some":"value"}'} | ${4}   | ${'{\n    "some": "value"\n}'}
   `('pretty prints', ({ value, spaces, expected }) => {
-    expect(service.prettyPrint(value, spaces)).toBe(expected);
+    expect(jsonPrettyPrint(value, spaces)).toBe(expected);
   });
 
   it.each`
@@ -18,6 +15,6 @@ describe('JsonService', () => {
     ${''}                        | ${''}
     ${'{\n  "some": "value"\n}'} | ${'{"some":"value"}'}
   `('minifies', ({ value, expected }) => {
-    expect(service.minify(value)).toBe(expected);
+    expect(jsonMinify(value)).toBe(expected);
   });
 });

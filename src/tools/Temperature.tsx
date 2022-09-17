@@ -1,5 +1,4 @@
-import { useService } from '../hooks/useService';
-import { TemperatureService, TemperatureUnit } from '../services/TemperatureService';
+import { temperatureConvert, TemperatureUnit } from '../services/temperature';
 import { Tool } from './Tool';
 import { NumberInput } from '../components/input/NumberInput';
 import { useEffect, useState } from 'react';
@@ -15,15 +14,14 @@ const unitOptions: Option[] = Object.values(TemperatureUnit).map((v) => ({
 export const TemperatureConvert: Tool = {
   name: 'Temperature conversion',
   Component: () => {
-    const service = useService(TemperatureService);
     const [value, setValue] = useState(0);
     const [fromUnit, setFromUnit] = useState(TemperatureUnit.celsius);
     const [toUnit, setToUnit] = useState(TemperatureUnit.fahrenheit);
     const [result, setResult] = useState(NaN);
 
     useEffect(() => {
-      setResult(service.convert(value, fromUnit, toUnit));
-    }, [service, value, fromUnit, toUnit]);
+      setResult(temperatureConvert(value, fromUnit, toUnit));
+    }, [value, fromUnit, toUnit]);
 
     return (
       <div className="converter">

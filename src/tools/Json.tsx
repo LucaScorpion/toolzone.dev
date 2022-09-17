@@ -1,17 +1,15 @@
 import { Tool } from './Tool';
 import { useState } from 'react';
 import { TextAreaInput } from '../components/input/TextAreaInput';
-import { useService } from '../hooks/useService';
-import { JsonService } from '../services/JsonService';
+import { jsonMinify, jsonPrettyPrint } from '../services/json';
 import { NumberInput } from '../components/input/NumberInput';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
 
 export const JsonMinify: Tool = {
   name: 'JSON minify',
   Component: () => {
-    const service = useService(JsonService);
     const [value, setValue] = useState('');
-    const result = useEffectWithCatch(() => service.minify(value), [service, value]);
+    const result = useEffectWithCatch(() => jsonMinify(value), [value]);
 
     return (
       <div className="panels">
@@ -25,10 +23,9 @@ export const JsonMinify: Tool = {
 export const JsonPrettyPrint: Tool = {
   name: 'JSON pretty print',
   Component: () => {
-    const service = useService(JsonService);
     const [value, setValue] = useState('');
     const [spaces, setSpaces] = useState(2);
-    const result = useEffectWithCatch(() => service.prettyPrint(value, spaces), [service, value, spaces]);
+    const result = useEffectWithCatch(() => jsonPrettyPrint(value, spaces), [value, spaces]);
 
     return (
       <div className="panels-options">

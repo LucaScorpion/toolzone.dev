@@ -1,23 +1,18 @@
 import { Tool } from './Tool';
 import { useState } from 'react';
 import { TextAreaInput } from '../components/input/TextAreaInput';
-import { useService } from '../hooks/useService';
-import { MorseService } from '../services/MorseService';
 import { TextInput } from '../components/input/TextInput';
 import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
+import { morseDecode, morseEncode } from '../services/morse';
 
 export const MorseEncode: Tool = {
   name: 'Morse encode',
   Component: () => {
-    const service = useService(MorseService);
     const [value, setValue] = useState('');
     const [dash, setDash] = useState('-');
     const [dot, setDot] = useState('.');
     const [space, setSpace] = useState('/');
-    const result = useEffectWithCatch(
-      () => service.encode(value, dash, dot, space),
-      [service, value, dash, dot, space]
-    );
+    const result = useEffectWithCatch(() => morseEncode(value, dash, dot, space), [value, dash, dot, space]);
 
     return (
       <div className="panels-options">
@@ -44,15 +39,11 @@ export const MorseEncode: Tool = {
 export const MorseDecode: Tool = {
   name: 'Morse decode',
   Component: () => {
-    const service = useService(MorseService);
     const [value, setValue] = useState('');
     const [dash, setDash] = useState('-');
     const [dot, setDot] = useState('.');
     const [space, setSpace] = useState('/');
-    const result = useEffectWithCatch(
-      () => service.decode(value, dash, dot, space),
-      [service, value, dash, dot, space]
-    );
+    const result = useEffectWithCatch(() => morseDecode(value, dash, dot, space), [value, dash, dot, space]);
 
     return (
       <div className="panels-options">

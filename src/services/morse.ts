@@ -1,37 +1,33 @@
-export class MorseService {
-  public static readonly NAME = 'MorseService';
+export function morseEncode(value: string, dash: string, dot: string, space: string): string {
+  return value
+    .toLowerCase()
+    .split(' ')
+    .filter((w) => !!w)
+    .map((word) =>
+      word
+        .split('')
+        .map((symbol) => symbolToMorse[symbol] ?? '')
+        .join(' ')
+        .replaceAll('-', dash)
+        .replaceAll('.', dot)
+    )
+    .join(` ${space} `);
+}
 
-  public encode(value: string, dash: string, dot: string, space: string): string {
-    return value
-      .toLowerCase()
-      .split(' ')
-      .filter((w) => !!w)
-      .map((word) =>
-        word
-          .split('')
-          .map((symbol) => symbolToMorse[symbol] ?? '')
-          .join(' ')
-          .replaceAll('-', dash)
-          .replaceAll('.', dot)
-      )
-      .join(` ${space} `);
-  }
-
-  public decode(value: string, dash: string, dot: string, space: string): string {
-    return value
-      .split(space)
-      .filter((w) => !!w)
-      .map((word) =>
-        word
-          .trim()
-          .replaceAll(dash, '-')
-          .replaceAll(dot, '.')
-          .split(' ')
-          .map((symbol) => morseToSymbol[symbol] ?? '')
-          .join('')
-      )
-      .join(` `);
-  }
+export function morseDecode(value: string, dash: string, dot: string, space: string): string {
+  return value
+    .split(space)
+    .filter((w) => !!w)
+    .map((word) =>
+      word
+        .trim()
+        .replaceAll(dash, '-')
+        .replaceAll(dot, '.')
+        .split(' ')
+        .map((symbol) => morseToSymbol[symbol] ?? '')
+        .join('')
+    )
+    .join(` `);
 }
 
 // Source: https://www.itu.int/rec/R-REC-M.1677-1-200910-I
