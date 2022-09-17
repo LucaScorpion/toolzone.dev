@@ -5,6 +5,7 @@ import { TextAreaInput } from '../../components/input/TextAreaInput';
 import { ToolOption } from '../toolOptions';
 import { ToolOptionItem } from '../../components/ToolOptionItem';
 import { upperCaseFirst } from '../../utils/upperCaseFirst';
+import { classNames } from '../../utils/classNames';
 
 export type StringFn<T> = (input: string, options: T) => string;
 
@@ -40,7 +41,11 @@ export function createStringTool<T>(
         <div className="panels-options">
           <div className="panels">
             <TextAreaInput value={value} onChange={setValue} placeholder={inputExample} />
-            <TextAreaInput value={result?.toString()} placeholder={outputExample} />
+            <TextAreaInput
+              value={result?.toString()}
+              placeholder={outputExample}
+              className={classNames(result instanceof Error && 'error')}
+            />
           </div>
           {toolOptions && (
             <div className="options">
