@@ -1,4 +1,5 @@
-export function jsonPrettyPrint(value: string, spaces: number): string {
+export function jsonPrettyPrint(value: string, options: { Spaces: number }): string {
+  const spaces = options.Spaces || 2;
   if (!value) {
     return '';
   }
