@@ -7,7 +7,7 @@ describe('json', () => {
     ${'{"some":"value"}'} | ${2}   | ${'{\n  "some": "value"\n}'}
     ${'{"some":"value"}'} | ${4}   | ${'{\n    "some": "value"\n}'}
   `('pretty prints', ({ value, spaces, expected }) => {
-    expect(jsonPrettyPrint(value, spaces)).toBe(expected);
+    expect(jsonPrettyPrint(value, { Spaces: spaces })).toBe(expected);
   });
 
   it.each`
