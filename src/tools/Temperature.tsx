@@ -13,6 +13,7 @@ const unitOptions: Option[] = Object.values(TemperatureUnit).map((v) => ({
 
 export const TemperatureConvert: Tool = {
   name: 'Temperature conversion',
+  additionalTags: 'celsius convert fahrenheit kelvin',
   Component: () => {
     const [value, setValue] = useState(0);
     const [fromUnit, setFromUnit] = useState(TemperatureUnit.celsius);

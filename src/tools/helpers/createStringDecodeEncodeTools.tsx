@@ -4,6 +4,7 @@ import { ToolOption } from '../toolOptions';
 
 export function createStringDecodeEncodeTools<T>(
   name: string,
+  additionalTags: string,
   decodeFn: StringFn<T>,
   encodeFn: StringFn<T>,
   encodedExample: string,
@@ -11,7 +12,7 @@ export function createStringDecodeEncodeTools<T>(
   toolOptions?: ToolOption[]
 ): Tool[] {
   return [
-    createStringTool(`${name} decode`, decodeFn, encodedExample, decodedExample, toolOptions),
-    createStringTool(`${name} encode`, encodeFn, decodedExample, encodedExample, toolOptions),
+    createStringTool(`${name} decode`, additionalTags, decodeFn, encodedExample, decodedExample, toolOptions),
+    createStringTool(`${name} encode`, additionalTags, encodeFn, decodedExample, encodedExample, toolOptions),
   ];
 }

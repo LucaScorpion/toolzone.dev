@@ -11,6 +11,7 @@ export type StringFn<T> = (input: string, options: T) => string;
 
 export function createStringTool<T>(
   name: string,
+  additionalTags: string,
   toolFn: StringFn<T>,
   inputExample: string,
   outputExample: string,
@@ -26,6 +27,7 @@ export function createStringTool<T>(
 
   return {
     name,
+    additionalTags,
     Component: () => {
       const [value, setValue] = useState('');
       const [options, setOptions] = useState<Record<string, unknown>>(() => {

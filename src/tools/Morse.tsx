@@ -3,6 +3,7 @@ import { createStringDecodeEncodeTools } from './helpers/createStringDecodeEncod
 
 export const Morse = createStringDecodeEncodeTools(
   'Morse',
+  'telegraph',
   morseDecode,
   morseEncode,
   '.... . .-.. .-.. --- / .-- --- .-. .-.. -..',

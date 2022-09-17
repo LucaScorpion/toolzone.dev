@@ -28,10 +28,9 @@ export const ToolsPage: React.FC = () => {
     }
 
     setResults(
-      tools.filter((tool) => {
-        const nameLower = tool.name.toLowerCase();
-        return terms.every((term) => nameLower.includes(term));
-      })
+      tools.filter((tool) =>
+        terms.every((term) => tool.name.toLowerCase().includes(term) || tool.additionalTags.includes(term))
+      )
     );
   }, [searchTerm]);
 
