@@ -10,7 +10,7 @@ describe('morse', () => {
     ${pangramText} | ${'-'} | ${'.'} | ${'/'} | ${pangramMorse}
     ${'ab c'}      | ${'_'} | ${','} | ${'|'} | ${',_ _,,, | _,_,'}
   `('encodes morse', ({ value, dash, dot, space, expected }) => {
-    expect(morseEncode(value, dash, dot, space)).toBe(expected);
+    expect(morseEncode(value, { dash, dot, space })).toBe(expected);
   });
 
   it.each`
@@ -18,6 +18,6 @@ describe('morse', () => {
     ${pangramMorse}         | ${'-'} | ${'.'} | ${'/'} | ${pangramText.toLowerCase()}
     ${',_ _,,,  |  _,_,  '} | ${'_'} | ${','} | ${'|'} | ${'ab c'}
   `('decodes morse', ({ value, dash, dot, space, expected }) => {
-    expect(morseDecode(value, dash, dot, space)).toBe(expected);
+    expect(morseDecode(value, { dash, dot, space })).toBe(expected);
   });
 });

@@ -1,6 +1,6 @@
-import { createStringDecodeEncodeTool } from './createStringDecodeEncodeTool';
+import { createStringDecodeEncodeTools } from './helpers/createStringDecodeEncodeTools';
 
-export const Percent = createStringDecodeEncodeTool(
+export const Percent = createStringDecodeEncodeTools(
   'Percent',
   decodeURIComponent,
   encodeURIComponent,

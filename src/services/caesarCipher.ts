@@ -1,5 +1,9 @@
-export function caesarCipherEncode(value: string, options: { Shift: number }): string {
-  const shift = options.Shift || 0;
+interface CaesarCipherOptions {
+  shift?: number;
+}
+
+export function caesarCipherEncode(value: string, options: CaesarCipherOptions): string {
+  const shift = options.shift || 0;
   let result = '';
   for (let i = 0; i < value.length; i++) {
     const charCode = value.charCodeAt(i);

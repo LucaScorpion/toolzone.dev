@@ -1,4 +1,13 @@
-export function morseEncode(value: string, dash: string, dot: string, space: string): string {
+interface MorseOptions {
+  dash?: string;
+  dot?: string;
+  space?: string;
+}
+
+export function morseEncode(value: string, options: MorseOptions): string {
+  const dash = options.dash || '-';
+  const dot = options.dot || '.';
+  const space = options.space || '/';
   return value
     .toLowerCase()
     .split(' ')
@@ -14,7 +23,10 @@ export function morseEncode(value: string, dash: string, dot: string, space: str
     .join(` ${space} `);
 }
 
-export function morseDecode(value: string, dash: string, dot: string, space: string): string {
+export function morseDecode(value: string, options: MorseOptions): string {
+  const dash = options.dash || '-';
+  const dot = options.dot || '.';
+  const space = options.space || '/';
   return value
     .split(space)
     .filter((w) => !!w)

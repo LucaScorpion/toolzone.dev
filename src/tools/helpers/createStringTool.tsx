@@ -1,11 +1,12 @@
-import { Tool } from './Tool';
+import { Tool } from '../Tool';
 import { useState } from 'react';
-import { useEffectWithCatch } from '../hooks/useEffectWithCatch';
-import { TextAreaInput } from '../components/input/TextAreaInput';
-import { ToolOption } from './toolOptions';
-import { ToolOptionItem } from '../components/ToolOptionItem';
+import { useEffectWithCatch } from '../../hooks/useEffectWithCatch';
+import { TextAreaInput } from '../../components/input/TextAreaInput';
+import { ToolOption } from '../toolOptions';
+import { ToolOptionItem } from '../../components/ToolOptionItem';
+import { upperCaseFirst } from '../../utils/upperCaseFirst';
 
-type StringFn<T> = (input: string, options: T) => string;
+export type StringFn<T> = (input: string, options: T) => string;
 
 export function createStringTool<T>(
   name: string,
@@ -14,6 +15,14 @@ export function createStringTool<T>(
   outputExample: string,
   toolOptions?: ToolOption[]
 ): Tool {
+  if (toolOptions) {
+    for (const opt of toolOptions) {
+      if (opt.name.toLowerCase() !== opt.name) {
+        throw new Error(`Error in tool: ${name}, option name should be all lowercase for: ${opt.name}`);
+      }
+    }
+  }
+
   return {
     name,
     Component: () => {
@@ -37,7 +46,7 @@ export function createStringTool<T>(
             <div className="options">
               {toolOptions?.map((opt) => (
                 <div key={opt.name}>
-                  {opt.name}
+                  {upperCaseFirst(opt.name)}
                   <ToolOptionItem
                     option={opt}
                     value={options[opt.name]}

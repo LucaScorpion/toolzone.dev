@@ -7,6 +7,6 @@ describe('caesarCipher', () => {
     ${'spe(cial) char&s'}                            | ${13} | ${'fcr(pvny) pune&f'}
     ${'Not 13 but 7'}                                | ${7}  | ${'Uva 13 iba 7'}
   `('ciphers the value', ({ value, shift, expected }) => {
-    expect(caesarCipherEncode(value, { Shift: shift })).toBe(expected);
+    expect(caesarCipherEncode(value, { shift })).toBe(expected);
   });
 });

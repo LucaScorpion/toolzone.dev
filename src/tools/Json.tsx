@@ -1,5 +1,5 @@
 import { jsonMinify, jsonPrettyPrint } from '../services/json';
-import { createStringTool } from './createStringTool';
+import { createStringTool } from './helpers/createStringTool';
 
 export const JsonMinify = createStringTool(
   'JSON minify',
@@ -15,7 +15,7 @@ export const JsonPrettyPrint = createStringTool(
   '{\n  "type": "json",\n  "pretty": true\n}',
   [
     {
-      name: 'Spaces',
+      name: 'spaces',
       type: 'number',
       defaultValue: 2,
       min: 1,

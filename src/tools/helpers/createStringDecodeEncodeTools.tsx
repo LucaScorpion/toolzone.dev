@@ -1,13 +1,11 @@
-import { Tool } from './Tool';
-import { createStringTool } from './createStringTool';
-import { ToolOption } from './toolOptions';
+import { Tool } from '../Tool';
+import { createStringTool, StringFn } from './createStringTool';
+import { ToolOption } from '../toolOptions';
 
-type encodeDecodeFn = (input: string) => string;
-
-export function createStringDecodeEncodeTool(
+export function createStringDecodeEncodeTools<T>(
   name: string,
-  decodeFn: encodeDecodeFn,
-  encodeFn: encodeDecodeFn,
+  decodeFn: StringFn<T>,
+  encodeFn: StringFn<T>,
   encodedExample: string,
   decodedExample: string,
   toolOptions?: ToolOption[]
