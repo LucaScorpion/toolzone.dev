@@ -1,7 +1,7 @@
 import { Tool } from '../Tool';
 import { useState } from 'react';
 import { useEffectWithCatch } from '../../hooks/useEffectWithCatch';
-import { TextAreaInput } from '../../components/input/TextAreaInput';
+import { TextArea } from '../../components/input/TextArea';
 import { ToolOption } from '../toolOptions';
 import { ToolOptionItem } from '../../components/ToolOptionItem';
 import { upperCaseFirst } from '../../utils/upperCaseFirst';
@@ -42,8 +42,8 @@ export function createStringTool<T>(
       return (
         <div className="panels-options">
           <div className="panels">
-            <TextAreaInput value={value} onChange={setValue} placeholder={inputExample} />
-            <TextAreaInput
+            <TextArea value={value} onChange={setValue} placeholder={inputExample} />
+            <TextArea
               value={result?.toString()}
               placeholder={outputExample}
               className={classNames(result instanceof Error && 'error')}
