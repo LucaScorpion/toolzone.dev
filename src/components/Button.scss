@@ -1,4 +1,4 @@
-.button {
+button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,9 +7,8 @@
   cursor: pointer;
   font-size: 18px;
   border: none;
-  height: $input-height;
   padding: 0 8px;
-  font-weight: 500;
+  height: $input-height;
 
   @include clickable($blue-dark, $blue-darker);
 

@@ -1,0 +1,10 @@
+input,
+select {
+  height: $input-height;
+  border-radius: $border-radius;
+  border: 1px solid gray;
+}
+
+input {
+  padding: 0 4px;
+}

@@ -5,13 +5,15 @@
 @import 'reset';
 @import 'mixins';
 
-// Component and page styles.
 #root {
+  // Components.
+  @import '../components/input/Input';
+  @import '../components/input/TextArea';
   @import '../components/Button';
   @import '../components/GitHubCorner';
   @import '../components/Layout';
-
+  // Pages.
   @import '../pages/ToolsPage';
-
+  // Tools.
   @import '../tools/tool';
 }
