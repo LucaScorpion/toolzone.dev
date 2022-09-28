@@ -10,7 +10,7 @@ export const GenerateUuid: Tool = {
     const [uuid, setUuid] = useState(() => crypto.randomUUID());
 
     return (
-      <div>
+      <div className="tool simple-generator">
         <TextInput value={uuid} readOnly />
         <Button onClick={() => setUuid(crypto.randomUUID())}>Generate</Button>
       </div>
