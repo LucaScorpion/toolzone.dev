@@ -12,8 +12,10 @@
   @import '../components/Button';
   @import '../components/GitHubCorner';
   @import '../components/Layout';
+  @import '../components/ToolOptions';
   // Pages.
   @import '../pages/ToolsPage';
   // Tools.
+  @import '../tools/layouts/two-panels';
   @import '../tools/tool';
 }

@@ -1,0 +1,21 @@
+.tool-options {
+  padding: 8px 8px 0 8px;
+  background-color: lightslategray;
+  border-radius: $border-radius;
+
+  > div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 16px;
+    margin-bottom: 8px;
+
+    label {
+      margin-right: 16px;
+    }
+
+    input {
+      width: 128px;
+    }
+  }
+}

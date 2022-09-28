@@ -6,14 +6,16 @@
     max-width: 800px;
     margin: 0 auto;
 
-    .tool {
-      height: 400px;
+    .active-tool {
+      flex: 0 0 400px;
+      width: 100%;
       margin-bottom: 32px;
       display: flex;
       flex-direction: column;
 
       .name {
-        margin-bottom: 8px;
+        margin-top: 16px;
+        margin-bottom: 16px;
       }
     }
 

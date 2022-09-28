@@ -34,7 +34,6 @@ export const TemperatureConvert: Tool = {
           onChange={(c) => setFromUnit(c as TemperatureUnit)}
         />
         <Icon icon="arrow-right big-screen" />
-        <Icon icon="arrow-down small-screen" />
         <SelectInput
           className="input"
           options={unitOptions}

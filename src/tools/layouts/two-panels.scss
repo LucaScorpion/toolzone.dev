@@ -1,0 +1,22 @@
+.tool.two-panels {
+  display: flex;
+  flex-direction: column;
+
+  .input-output {
+    flex: 1;
+    margin-bottom: 16px;
+    display: flex;
+
+    @include small-screen {
+      flex-direction: column;
+    }
+
+    textarea {
+      flex: auto;
+
+      &:first-child {
+        margin-right: 16px;
+      }
+    }
+  }
+}

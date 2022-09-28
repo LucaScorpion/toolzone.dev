@@ -1,94 +1,13 @@
 .tool {
   width: 100%;
-  padding: 8px;
+  flex: auto;
 
-  .panels-options {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+  textarea {
+    font-family: monospace;
+    resize: none;
 
-  .panels {
-    display: flex;
-    flex: 1 1 auto;
-
-    @include small-screen {
-      flex-direction: column;
-    }
-
-    > * {
-      flex: 1 1 auto;
-      height: 100%;
-
-      &:not(:last-child) {
-        margin-right: 16px;
-
-        @include small-screen {
-          margin-right: initial;
-          margin-bottom: 16px;
-        }
-      }
-    }
-
-    textarea {
-      font-family: monospace;
-      resize: none;
-
-      &.error {
-        border: 2px solid red;
-      }
-    }
-  }
-
-  .options {
-    margin-top: 8px;
-    padding: 8px 8px 0 8px;
-    background-color: lightslategray;
-    border-radius: $border-radius;
-
-    > div {
-      margin-right: 16px;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100px;
-    }
-  }
-
-  .converter {
-    display: flex;
-    align-items: center;
-
-    > *:not(:last-child) {
-      margin-right: 16px;
-    }
-
-    .input {
-      width: 200px;
-    }
-
-    .small-screen {
-      display: none;
-    }
-
-    @include small-screen {
-      flex-direction: column;
-
-      > *,
-      > .input,
-      > .icon {
-        margin: 8px 0;
-      }
-
-      .small-screen {
-        display: initial;
-      }
-
-      .big-screen {
-        display: none;
-      }
+    &.error {
+      border: 2px solid red;
     }
   }
 }

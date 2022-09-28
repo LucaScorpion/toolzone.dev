@@ -36,7 +36,7 @@ export const ToolsPage: React.FC = () => {
 
   return (
     <Layout className="tools-page">
-      <div className="tool">
+      <div className="active-tool">
         {activeTool && (
           <>
             <h2 className="name">{activeTool.name}</h2>

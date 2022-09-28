@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { useEffectWithCatch } from '../../hooks/useEffectWithCatch';
 import { TextArea } from '../../components/input/TextArea';
 import { ToolOption } from '../toolOptions';
-import { ToolOptionItem } from '../../components/ToolOptionItem';
-import { upperCaseFirst } from '../../utils/upperCaseFirst';
 import { classNames } from '../../utils/classNames';
+import { OptionValues, ToolOptions } from '../../components/ToolOptions';
 
 export type StringFn<T> = (input: string, options: T) => string;
 
@@ -30,8 +29,8 @@ export function createStringTool<T>(
     additionalTags,
     Component: () => {
       const [value, setValue] = useState('');
-      const [options, setOptions] = useState<Record<string, unknown>>(() => {
-        const opts: Record<string, unknown> = {};
+      const [options, setOptions] = useState<OptionValues>(() => {
+        const opts: OptionValues = {};
         toolOptions?.forEach((opt) => {
           opts[opt.name] = opt.defaultValue;
         });
@@ -40,8 +39,8 @@ export function createStringTool<T>(
       const result = useEffectWithCatch(() => toolFn(value, options as T), [value, options]);
 
       return (
-        <div className="panels-options">
-          <div className="panels">
+        <div className="tool two-panels">
+          <div className="input-output">
             <TextArea value={value} onChange={setValue} placeholder={inputExample} />
             <TextArea
               value={result?.toString()}
@@ -49,25 +48,7 @@ export function createStringTool<T>(
               className={classNames(result instanceof Error && 'error')}
             />
           </div>
-          {toolOptions && (
-            <div className="options">
-              {toolOptions?.map((opt) => (
-                <div key={opt.name}>
-                  {upperCaseFirst(opt.name)}
-                  <ToolOptionItem
-                    option={opt}
-                    value={options[opt.name]}
-                    setValue={(newVal) =>
-                      setOptions((prevState) => ({
-                        ...prevState,
-                        [opt.name]: newVal,
-                      }))
-                    }
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+          {toolOptions && <ToolOptions toolOptions={toolOptions} value={options} onChange={setOptions} />}
         </div>
       );
     },
