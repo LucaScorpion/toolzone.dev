@@ -25,28 +25,13 @@ export const TemperatureConvert: Tool = {
     }, [value, fromUnit, toUnit]);
 
     return (
-      <div className="converter">
-        <NumberInput className="input" value={value} onChange={setValue} />
-        <SelectInput
-          className="unit input"
-          options={unitOptions}
-          value={fromUnit}
-          onChange={(c) => setFromUnit(c as TemperatureUnit)}
-        />
-        <Icon icon="arrow-right big-screen" />
-        <SelectInput
-          className="input"
-          options={unitOptions}
-          value={toUnit}
-          onChange={(c) => setToUnit(c as TemperatureUnit)}
-        />
+      <div className="tool unit-converter">
+        <NumberInput value={value} onChange={setValue} />
+        <SelectInput options={unitOptions} value={fromUnit} onChange={(c) => setFromUnit(c as TemperatureUnit)} />
+        <Icon icon="arrow-right" />
+        <SelectInput options={unitOptions} value={toUnit} onChange={(c) => setToUnit(c as TemperatureUnit)} />
         <Icon icon="equals" />
-        <TextInput
-          className="input"
-          value={isNaN(result) ? '' : result.toString()}
-          onChange={() => undefined}
-          readOnly
-        />
+        <TextInput value={isNaN(result) ? '' : result.toString()} onChange={() => undefined} readOnly />
       </div>
     );
   },
