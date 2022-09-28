@@ -6,7 +6,7 @@ import { ToolOption } from '../toolOptions';
 import { classNames } from '../../utils/classNames';
 import { OptionValues, ToolOptions } from '../../components/ToolOptions';
 
-export type StringFn<T> = (input: string, options: T) => string;
+export type StringFn<T> = (input: string, options: T) => string | Promise<string>;
 
 export function createStringTool<T>(
   name: string,

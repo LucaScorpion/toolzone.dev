@@ -1,8 +1,8 @@
 import { DependencyList, useCallback, useEffect, useState } from 'react';
 
-export type Result<T> = T | Error | undefined;
+export type Result<T> = T | Promise<T> | Error | undefined;
 
-export function useEffectWithCatch<T>(effect: () => T, deps: DependencyList): Result<T> {
+export function useEffectWithCatch<T>(effect: () => T | Promise<T>, deps: DependencyList): Result<T> {
   const [result, setResult] = useState<Result<T>>();
 
   // Here we don't want to add `effect` as a dependency of `useCallback`,
@@ -11,15 +11,17 @@ export function useEffectWithCatch<T>(effect: () => T, deps: DependencyList): Re
   const effectCallback = useCallback(effect, deps);
 
   useEffect(() => {
-    try {
-      setResult(effectCallback());
-    } catch (e) {
-      if (e instanceof Error) {
-        setResult(e);
-      } else {
-        setResult(new Error(`${e}`));
+    (async () => {
+      try {
+        setResult(await effectCallback());
+      } catch (e) {
+        if (e instanceof Error) {
+          setResult(e);
+        } else {
+          setResult(new Error(`${e}`));
+        }
       }
-    }
+    })();
   }, [effectCallback]);
 
   return result;
