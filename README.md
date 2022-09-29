@@ -8,11 +8,13 @@ Everything runs client-side in the browser, so no data is ever sent to a server.
 ## Available Tools
 
 - Base64 decode & encode
-- Caesar cipher (ROT13, shift cipher)
-- JSON minify & pretty print (beautify)
+- Caesar cipher (ROT13)
+- Hash (SHA variants)
+- JSON minify & pretty print
 - Morse decode & encode
 - Percent (URL) decode & encode
 - Temperature conversion
+- UUID (v4) generator
 
 ## Development
 

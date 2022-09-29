@@ -11,7 +11,7 @@ export const JsonMinify = createStringTool(
 
 export const JsonPrettyPrint = createStringTool(
   'JSON pretty print',
-  'format prettify',
+  'beautify format prettify',
   jsonPrettyPrint,
   '{"type":"json","pretty":true}',
   '{\n  "type": "json",\n  "pretty": true\n}',
