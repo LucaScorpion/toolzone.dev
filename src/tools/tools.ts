@@ -11,7 +11,7 @@ export const tools = [
   ...Base64,
   CaesarCipher,
   GenerateUuid,
-  // Hash,
+  Hash,
   JsonMinify,
   JsonPrettyPrint,
   ...Morse,

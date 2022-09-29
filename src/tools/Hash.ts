@@ -8,6 +8,11 @@ export const Hash = createStringTool(
   'Hello world!',
   'd3486ae9136e7856bc42212385ea797094475802',
   [
-    // TODO: algorithm option.
+    {
+      name: 'algorithm',
+      type: 'enum',
+      options: ['SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'],
+      defaultValue: 'SHA-512',
+    },
   ]
 );

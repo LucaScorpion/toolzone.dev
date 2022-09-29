@@ -1,7 +1,8 @@
 import React from 'react';
-import { NumberToolOption, StringToolOption, ToolOption } from '../tools/toolOptions';
+import { EnumToolOption, NumberToolOption, StringToolOption, ToolOption } from '../tools/toolOptions';
 import { NumberInput } from './input/NumberInput';
 import { TextInput } from './input/TextInput';
+import { SelectInput } from './input/SelectInput';
 
 export interface Props<T extends ToolOption = ToolOption> {
   option: T;
@@ -15,6 +16,8 @@ export const ToolOptionItem: React.FC<Props> = ({ option, value, setValue }) => 
       return <StringToolOptionItem option={option} value={value} setValue={setValue} />;
     case 'number':
       return <NumberToolOptionItem option={option} value={value} setValue={setValue} />;
+    case 'enum':
+      return <EnumToolOptionItem option={option} value={value} setValue={setValue} />;
     default:
       throw new Error(`Unknown option type: ${(option as ToolOption).type}`);
   }
@@ -31,5 +34,13 @@ export const NumberToolOptionItem: React.FC<Props<NumberToolOption>> = ({ option
     placeholder={option.defaultValue.toString()}
     min={option.min}
     max={option.max}
+  />
+);
+
+export const EnumToolOptionItem: React.FC<Props<EnumToolOption>> = ({ option, value, setValue }) => (
+  <SelectInput
+    options={option.options.map((o) => ({ value: o, label: o }))}
+    value={value as string}
+    onChange={setValue}
   />
 );

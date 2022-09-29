@@ -1,4 +1,4 @@
-export type ToolOption = StringToolOption | NumberToolOption;
+export type ToolOption = StringToolOption | NumberToolOption | EnumToolOption;
 
 interface BaseToolOption {
   name: string;
@@ -15,4 +15,10 @@ export interface NumberToolOption extends BaseToolOption {
   defaultValue: number;
   min?: number;
   max?: number;
+}
+
+export interface EnumToolOption extends BaseToolOption {
+  type: 'enum';
+  options: string[];
+  defaultValue: string;
 }
