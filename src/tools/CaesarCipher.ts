@@ -1,7 +1,7 @@
 import { caesarCipherEncode } from '../services/caesarCipher';
-import { createStringTool } from './helpers/createStringTool';
+import { createIOTool } from './helpers/createIOTool';
 
-export const CaesarCipher = createStringTool(
+export const CaesarCipher = createIOTool(
   'Caesar cipher',
   'rot13 shift',
   caesarCipherEncode,

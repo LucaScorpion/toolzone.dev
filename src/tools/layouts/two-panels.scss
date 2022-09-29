@@ -11,7 +11,7 @@
       flex-direction: column;
     }
 
-    textarea {
+    > * {
       flex: auto;
 
       &:first-child {

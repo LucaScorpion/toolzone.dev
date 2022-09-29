@@ -5,13 +5,16 @@ import { TextArea } from '../../components/input/TextArea';
 import { ToolOption } from '../toolOptions';
 import { classNames } from '../../utils/classNames';
 import { OptionValues, ToolOptions } from '../../components/ToolOptions';
+import { IOField } from '../../components/input/IOField';
 
-export type StringFn<T> = (input: string, options: T) => string | Promise<string>;
+type Value = string | ArrayBuffer;
 
-export function createStringTool<T>(
+export type IOFn<T> = (input: string, options: T) => Value | Promise<Value>;
+
+export function createIOTool<T>(
   name: string,
   additionalTags: string,
-  toolFn: StringFn<T>,
+  toolFn: IOFn<T>,
   inputExample: string,
   outputExample: string,
   toolOptions?: ToolOption[]
@@ -42,8 +45,8 @@ export function createStringTool<T>(
         <div className="tool two-panels">
           <div className="input-output">
             <TextArea value={value} onChange={setValue} placeholder={inputExample} />
-            <TextArea
-              value={result?.toString()}
+            <IOField
+              value={result instanceof Error ? undefined : result}
               placeholder={outputExample}
               className={classNames(result instanceof Error && 'error')}
             />

@@ -23,11 +23,11 @@ export const ToolOptionItem: React.FC<Props> = ({ option, value, setValue }) => 
   }
 };
 
-export const StringToolOptionItem: React.FC<Props<StringToolOption>> = ({ option, value, setValue }) => (
+const StringToolOptionItem: React.FC<Props<StringToolOption>> = ({ option, value, setValue }) => (
   <TextInput value={value as string} onChange={setValue} placeholder={option.defaultValue} />
 );
 
-export const NumberToolOptionItem: React.FC<Props<NumberToolOption>> = ({ option, value, setValue }) => (
+const NumberToolOptionItem: React.FC<Props<NumberToolOption>> = ({ option, value, setValue }) => (
   <NumberInput
     value={value as number}
     onChange={setValue}
@@ -37,7 +37,7 @@ export const NumberToolOptionItem: React.FC<Props<NumberToolOption>> = ({ option
   />
 );
 
-export const EnumToolOptionItem: React.FC<Props<EnumToolOption>> = ({ option, value, setValue }) => (
+const EnumToolOptionItem: React.FC<Props<EnumToolOption>> = ({ option, value, setValue }) => (
   <SelectInput
     options={option.options.map((o) => ({ value: o, label: o }))}
     value={value as string}

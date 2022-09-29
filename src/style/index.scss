@@ -8,6 +8,7 @@
 #root {
   // Components.
   @import '../components/input/Input';
+  @import '../components/input/IOField';
   @import '../components/input/TextArea';
   @import '../components/Button';
   @import '../components/GitHubCorner';

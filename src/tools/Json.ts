@@ -1,7 +1,7 @@
 import { jsonMinify, jsonPrettyPrint } from '../services/json';
-import { createStringTool } from './helpers/createStringTool';
+import { createIOTool } from './helpers/createIOTool';
 
-export const JsonMinify = createStringTool(
+export const JsonMinify = createIOTool(
   'JSON minify',
   'uglify',
   jsonMinify,
@@ -9,7 +9,7 @@ export const JsonMinify = createStringTool(
   '{"type":"json","pretty":true}'
 );
 
-export const JsonPrettyPrint = createStringTool(
+export const JsonPrettyPrint = createIOTool(
   'JSON pretty print',
   'beautify format prettify',
   jsonPrettyPrint,

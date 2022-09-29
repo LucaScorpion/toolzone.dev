@@ -1,7 +1,7 @@
 import { morseDecode, morseEncode } from '../services/morse';
-import { createStringDecodeEncodeTools } from './helpers/createStringDecodeEncodeTools';
+import { createDecodeEncodeTools } from './helpers/createDecodeEncodeTools';
 
-export const Morse = createStringDecodeEncodeTools(
+export const Morse = createDecodeEncodeTools(
   'Morse',
   'telegraph',
   morseDecode,

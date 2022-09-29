@@ -1,0 +1,17 @@
+.io-field {
+  display: flex;
+  flex-direction: column;
+
+  .toolbar {
+    display: flex;
+    background-color: lightslategray;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  textarea {
+    flex: 1;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

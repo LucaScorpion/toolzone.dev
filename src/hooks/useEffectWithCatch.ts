@@ -1,6 +1,6 @@
 import { DependencyList, useCallback, useEffect, useState } from 'react';
 
-export type Result<T> = T | Promise<T> | Error | undefined;
+export type Result<T> = T | Error | undefined;
 
 export function useEffectWithCatch<T>(effect: () => T | Promise<T>, deps: DependencyList): Result<T> {
   const [result, setResult] = useState<Result<T>>();

@@ -1,7 +1,7 @@
-import { createStringTool } from './helpers/createStringTool';
+import { createIOTool } from './helpers/createIOTool';
 import { hash } from '../services/hash';
 
-export const Hash = createStringTool(
+export const Hash = createIOTool(
   'Hash',
   'crypto digest sha1 sha-1 sha256 sha-256 sha384 sha-384 sha512 sha-512',
   hash,
