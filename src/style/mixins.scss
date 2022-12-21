@@ -11,8 +11,14 @@
   }
 }
 
-@mixin small-screen() {
-  @media screen and (max-width: 900px) {
+@mixin max-small-screen() {
+  @media screen and (max-width: 899px) {
+    @content;
+  }
+}
+
+@mixin min-small-screen() {
+  @media screen and (min-width: 900px) {
     @content;
   }
 }

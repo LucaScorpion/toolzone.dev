@@ -4,10 +4,9 @@
 
   .input-output {
     flex: 1;
-    margin-bottom: 16px;
     display: flex;
 
-    @include small-screen {
+    @include max-small-screen {
       flex-direction: column;
     }
 
@@ -15,8 +14,18 @@
       flex: auto;
 
       &:first-child {
-        margin-right: 16px;
+        @include min-small-screen {
+          margin-right: 16px;
+        }
+
+        @include max-small-screen {
+          margin-bottom: 16px;
+        }
       }
     }
+  }
+
+  .tool-options {
+    margin-top: 16px;
   }
 }
