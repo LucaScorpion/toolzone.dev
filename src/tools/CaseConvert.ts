@@ -3,7 +3,7 @@ import { convertCase } from '../services/convertCase';
 
 export const CaseConvert = createIOTool(
   'Case conversion',
-  'casing convert text',
+  'casing convert lowercase randomcase text uppercase',
   convertCase,
   'something',
   'SOMETHING',
