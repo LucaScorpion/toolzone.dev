@@ -43,7 +43,7 @@ export const ToolsPage: React.FC = () => {
       <div className="active-tool">
         {activeTool && (
           <>
-            <h2 className="name">{activeTool.name}</h2>
+            <h1 className="name">{activeTool.name}</h1>
             <activeTool.Component />
           </>
         )}
