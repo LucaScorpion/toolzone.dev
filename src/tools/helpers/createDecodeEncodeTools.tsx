@@ -12,7 +12,21 @@ export function createDecodeEncodeTools<T>(
   toolOptions?: ToolOption[]
 ): Tool[] {
   return [
-    createIOTool(`${name} decode`, additionalTags, decodeFn, encodedExample, decodedExample, toolOptions),
-    createIOTool(`${name} encode`, additionalTags, encodeFn, decodedExample, encodedExample, toolOptions),
+    createIOTool(
+      `${name} decode`,
+      additionalTags,
+      decodeFn,
+      encodedExample,
+      decodedExample,
+      toolOptions
+    ),
+    createIOTool(
+      `${name} encode`,
+      additionalTags,
+      encodeFn,
+      decodedExample,
+      encodedExample,
+      toolOptions
+    ),
   ];
 }

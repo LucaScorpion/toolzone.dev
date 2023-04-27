@@ -1,11 +1,18 @@
 import React, { DetailedHTMLProps, TextareaHTMLAttributes } from 'react';
 
-type HtmlTextAreaProps = DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
+type HtmlTextAreaProps = DetailedHTMLProps<
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
+  HTMLTextAreaElement
+>;
 
 export interface Props extends Omit<HtmlTextAreaProps, 'onChange'> {
   onChange?: (value: string) => void;
 }
 
 export const TextArea: React.FC<Props> = ({ onChange, ...props }) => (
-  <textarea {...props} onChange={(e) => onChange && onChange(e.currentTarget.value)} readOnly={!onChange} />
+  <textarea
+    {...props}
+    onChange={(e) => onChange && onChange(e.currentTarget.value)}
+    readOnly={!onChange}
+  />
 );

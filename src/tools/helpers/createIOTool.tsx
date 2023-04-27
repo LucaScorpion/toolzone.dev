@@ -22,7 +22,9 @@ export function createIOTool<T>(
   if (toolOptions) {
     for (const opt of toolOptions) {
       if (opt.name.toLowerCase() !== opt.name) {
-        throw new Error(`Error in tool: ${name}, option name should be all lowercase for: ${opt.name}`);
+        throw new Error(
+          `Error in tool: ${name}, option name should be all lowercase for: ${opt.name}`
+        );
       }
     }
   }
@@ -39,19 +41,32 @@ export function createIOTool<T>(
         });
         return opts;
       });
-      const result = useEffectWithCatch(() => toolFn(value, options as T), [value, options]);
+      const result = useEffectWithCatch(
+        () => toolFn(value, options as T),
+        [value, options]
+      );
 
       return (
         <div className="tool two-panels">
           <div className="input-output">
-            <TextArea value={value} onChange={setValue} placeholder={inputExample} />
+            <TextArea
+              value={value}
+              onChange={setValue}
+              placeholder={inputExample}
+            />
             <IOField
               value={result instanceof Error ? undefined : result}
               placeholder={outputExample}
               className={classNames(result instanceof Error && 'error')}
             />
           </div>
-          {toolOptions && <ToolOptions toolOptions={toolOptions} value={options} onChange={setOptions} />}
+          {toolOptions && (
+            <ToolOptions
+              toolOptions={toolOptions}
+              value={options}
+              onChange={setOptions}
+            />
+          )}
         </div>
       );
     },

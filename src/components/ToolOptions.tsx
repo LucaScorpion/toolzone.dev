@@ -11,7 +11,11 @@ export interface Props {
   onChange: (opts: OptionValues) => void;
 }
 
-export const ToolOptions: React.FC<Props> = ({ toolOptions, value, onChange }) => {
+export const ToolOptions: React.FC<Props> = ({
+  toolOptions,
+  value,
+  onChange,
+}) => {
   return (
     <div className="tool-options">
       {toolOptions.map((opt) => (

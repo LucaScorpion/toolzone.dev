@@ -1,4 +1,8 @@
-export function convertSIUnits(value: number, fromUnit: string, toUnit: string): number {
+export function convertSIUnits(
+  value: number,
+  fromUnit: string,
+  toUnit: string
+): number {
   const fromSIUnit = SI_UNITS[fromUnit];
   const toSIUnit = SI_UNITS[toUnit];
   const factorDiff = fromSIUnit.factor - toSIUnit.factor;

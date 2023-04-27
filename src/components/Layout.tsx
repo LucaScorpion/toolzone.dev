@@ -14,7 +14,10 @@ export const Layout: React.FC<Props> = ({ children, className }) => (
       <Link to="/">
         <h1 className="title">toolzone.dev</h1>
       </Link>
-      <a href="https://github.com/LucaScorpion/toolzone.dev" rel="nofollow noopener noreferrer">
+      <a
+        href="https://github.com/LucaScorpion/toolzone.dev"
+        rel="nofollow noopener noreferrer"
+      >
         <Icon icon="github" iconStyle="brands" size={2} />
       </a>
     </div>

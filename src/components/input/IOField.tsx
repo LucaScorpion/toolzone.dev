@@ -27,13 +27,16 @@ export const IOField: React.FC<Props> = ({ value, ...props }) => {
 };
 
 function convertValue(value: string | ArrayBuffer, mode: Mode): string {
-  const buffer = typeof value === 'string' ? new TextEncoder().encode(value) : value;
+  const buffer =
+    typeof value === 'string' ? new TextEncoder().encode(value) : value;
 
   switch (mode) {
     case 'text':
       return new TextDecoder().decode(buffer);
     case 'hex':
-      return [...new Uint8Array(buffer)].map((v) => v.toString(16).padStart(2, '0')).join('');
+      return [...new Uint8Array(buffer)]
+        .map((v) => v.toString(16).padStart(2, '0'))
+        .join('');
     default:
       throw new Error(`Unknown mode: ${mode}`);
   }

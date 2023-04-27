@@ -7,7 +7,9 @@ export interface Props extends Omit<HtmlInputProps, 'onChange' | 'type'> {
 }
 
 export const NumberInput: React.FC<Props> = ({ onChange, ...props }) => {
-  const [stringValue, setStringValue] = useState((props.value ?? '').toString());
+  const [stringValue, setStringValue] = useState(
+    (props.value ?? '').toString()
+  );
 
   return (
     <input

@@ -4,7 +4,10 @@ interface ConvertCaseOptions {
 
 type Casing = 'lower' | 'upper' | 'random';
 
-export function convertCase(value: string, options: ConvertCaseOptions): string {
+export function convertCase(
+  value: string,
+  options: ConvertCaseOptions
+): string {
   options.casing = (options.casing?.toLowerCase() as Casing) || 'lower';
 
   switch (options.casing) {

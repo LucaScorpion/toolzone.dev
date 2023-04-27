@@ -4,7 +4,11 @@ export enum TemperatureUnit {
   fahrenheit = 'Fahrenheit',
 }
 
-export function temperatureConvert(value: number, fromUnit: TemperatureUnit, toUnit: TemperatureUnit): number {
+export function temperatureConvert(
+  value: number,
+  fromUnit: TemperatureUnit,
+  toUnit: TemperatureUnit
+): number {
   const kelvinValue = new unitMap[fromUnit](value).toKelvin();
   return unitMap[toUnit].fromKelvin(kelvinValue);
 }
