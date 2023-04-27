@@ -19,6 +19,6 @@ export interface NumberToolOption extends BaseToolOption {
 
 export interface EnumToolOption extends BaseToolOption {
   type: 'enum';
-  options: string[];
+  options: Record<string, string>;
   defaultValue: string;
 }

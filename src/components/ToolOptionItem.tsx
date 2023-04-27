@@ -39,7 +39,7 @@ const NumberToolOptionItem: React.FC<Props<NumberToolOption>> = ({ option, value
 
 const EnumToolOptionItem: React.FC<Props<EnumToolOption>> = ({ option, value, setValue }) => (
   <SelectInput
-    options={option.options.map((o) => ({ value: o, label: o }))}
+    options={Object.entries(option.options).map(([value, label]) => ({ value, label }))}
     value={value as string}
     onChange={setValue}
   />
